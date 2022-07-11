@@ -1,4 +1,4 @@
-import { describe, it, assert, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 import { transformToNumber } from './numbers';
 
