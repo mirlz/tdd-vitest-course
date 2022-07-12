@@ -48,29 +48,40 @@ describe('validateStringNotEmpty function: ', () => {
 
 describe('validateNumber function: ', () => {
     describe('should throw error', () => {
-        it('invalid number input error should be thrown if invalid input is passed in', () => {
+        it('invalid number input error should be thrown if string of char is passed in', () => {
             const rando = 'invalid';
-            const emptyObj = {};
-            const emptyArr = {};
-            const emptyStr = '';
-
             const resultFn = () => {
                 validateNumber(rando);
             };
-            const resultFn2 = () => {
+
+            expect(resultFn).toThrow(/Invalid number input/);
+        });
+        it('invalid number input error should be thrown if empty object is passed in', () => {
+            const emptyObj = {};
+
+            const resultFn = () => {
                 validateNumber(emptyObj);
             };
-            const resultFn3 = () => {
-                validateNumber(emptyArr);
-            };
-            const resultFn4 = () => {
+
+            expect(resultFn).toThrow(/Invalid number input/);
+        });
+        it('invalid number input error should be thrown if empty array is passed in', () => {
+            const emptyArr = [];
+
+            const resultFn = () => {
                 validateNumber(emptyArr);
             };
 
             expect(resultFn).toThrow(/Invalid number input/);
-            expect(resultFn2).toThrow(/Invalid number input/);
-            expect(resultFn3).toThrow(/Invalid number input/);
-            expect(resultFn4).toThrow(/Invalid number input/);
+        });
+        it('invalid number input error should be thrown if empty string is passed in', () => {
+            const emptyStr = '';
+
+            const resultFn = () => {
+                validateNumber(emptyStr);
+            };
+
+            expect(resultFn).toThrow(/Invalid number input/);
         });
         it('invalid number input error should be thrown if string of number is passed in', () => {
             const rando = '1';
