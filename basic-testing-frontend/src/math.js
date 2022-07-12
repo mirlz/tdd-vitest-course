@@ -9,11 +9,11 @@ export function add(numbers) {
   return sum;
 }
 
-export function calculateResult(numberInputs) {
+export function calculateResult(inputValues) {
   let result = '';
 
   try {
-    const numbers = cleanNumbers(numberInputs);
+    const numbers = cleanNumbers(inputValues);
 
     result = add(numbers).toString();
   } catch (error) {
